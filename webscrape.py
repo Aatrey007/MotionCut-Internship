@@ -1,11 +1,6 @@
 import requests 
-
-# Making a GET request 
-r = requests.get('https://www.geeksforgeeks.org/python-programming-language/') 
-
-# check status code for response received 
-# success code - 200 
-print(r) 
-
-# print content of request 
-print(r.content)
+from bs4 import Beautifulsoup
+import json
+req = requests.get('https://www.geeksforgeeks.org/python-programming-language/') 
+soup = Beautifulsoup(req.content,"html.parser")
+print(soup.get_text)
